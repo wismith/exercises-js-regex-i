@@ -3,7 +3,8 @@
  * and `false` otherwise.
  */
 function containsPhoneNumber(text) {
-  return false;
+  let numberFormat = /\d\d\d-\d\d\d-\d\d\d\d/;
+  return numberFormat.test(text);
 }
 
 /**
@@ -14,7 +15,11 @@ function containsPhoneNumber(text) {
  * findAllPhoneNumbers('555-123-4567, 123-456-0123, and 784-987-6543');
  */
 function findAllPhoneNumbers(text) {
-  return [];
+  if (!containsPhoneNumber(text)) {
+    return null;
+  }
+  let phoneNumbers = [];
+
 }
 
 /**
