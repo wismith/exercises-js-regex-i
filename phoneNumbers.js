@@ -3,7 +3,7 @@
  * and `false` otherwise.
  */
 function containsPhoneNumber(text) {
-  let numberFormat = /\d\d\d-\d\d\d-\d\d\d\d/g;
+  let numberFormat = /\d{3}-\d{3}-\d{4}/g;
   return numberFormat.test(text);
 }
 
@@ -35,7 +35,7 @@ function findAllPhoneNumbers(text) {
  * hidePhoneNumber('Call me at 555-213-5681!'); // => 'Call me at XXX-XXX-5681!'
  */
 function hidePhoneNumber(string) {
-  return '';
+  return string.replace(/\d{3}-\d{3}/g, 'XXX-XXX');
 }
 
 /**
@@ -46,6 +46,8 @@ function hidePhoneNumber(string) {
  *
  */
 function formatPhoneNumbers(string) {
+
+
   return '';
 }
 
@@ -77,6 +79,10 @@ console.log();
 console.log(`We found ${phoneNumbers.length} phone numbers.`)
 for (let number of phoneNumbers) {
   console.log(`* ${number}`);
+}
+console.log();
+for (let number of phoneNumbers) {
+  console.log(hidePhoneNumber(number));
 }
 console.log();
 console.log('-'.repeat(10));
